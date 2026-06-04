@@ -32,10 +32,37 @@ export default function Home() {
     alert("已复制回复！");
   };
 
+  const quickButtons = [
+    "太贵了",
+    "有折扣吗",
+    "别人卖更便宜",
+    "别的牌子卖更便宜",
+    "没有预算",
+    "最后多少钱",
+    "我先看看",
+    "我再考虑",
+    "下个月再买",
+    "我跟老婆商量",
+    "我跟老公商量",
+    "我跟家人商量",
+    "有现货吗",
+    "什么时候送货",
+    "包安装吗",
+    "可以试用吗",
+    "有什么赠品",
+    "有保修吗",
+    "可以分期吗",
+    "供几年",
+    "需要什么document吗",
+    "如果我不想再继续供会怎样",
+    "我要下单",
+    "客户3天没回复",
+  ];
+
   return (
     <div
       style={{
-        maxWidth: "850px",
+        maxWidth: "900px",
         margin: "40px auto",
         padding: "25px",
         fontFamily: "Arial",
@@ -45,6 +72,7 @@ export default function Home() {
       }}
     >
       <h1 style={{ textAlign: "center" }}>AI Sales Reply Pro 🚀</h1>
+
       <p style={{ textAlign: "center", color: "#666" }}>
         免费版销售 WhatsApp 回复助手
       </p>
@@ -52,24 +80,15 @@ export default function Home() {
       <h3>选择客户情况：</h3>
 
       <div>
-        <button style={buttonStyle} onClick={() => setInput("太贵了")}>
-          太贵了
-        </button>
-        <button style={buttonStyle} onClick={() => setInput("我考虑一下")}>
-          考虑一下
-        </button>
-        <button style={buttonStyle} onClick={() => setInput("有折扣吗")}>
-          有折扣吗
-        </button>
-        <button style={buttonStyle} onClick={() => setInput("还有现货吗")}>
-          有现货吗
-        </button>
-        <button style={buttonStyle} onClick={() => setInput("客户3天没回复")}>
-          客户3天没回复
-        </button>
-        <button style={buttonStyle} onClick={() => setInput("别人卖更便宜")}>
-          别人更便宜
-        </button>
+        {quickButtons.map((text) => (
+          <button
+            key={text}
+            style={buttonStyle}
+            onClick={() => setInput(text)}
+          >
+            {text}
+          </button>
+        ))}
       </div>
 
       <textarea

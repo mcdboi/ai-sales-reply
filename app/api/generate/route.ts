@@ -9,9 +9,17 @@ export async function POST(req: Request) {
 
   const selectedProduct = products[productName as keyof typeof products];
 
-  const productFeatures = selectedProduct
-    ? selectedProduct.features.join("、")
-    : "";
+  let productFeatures = "";
+
+if (selectedProduct) {
+  if (language === "English") {
+    productFeatures = selectedProduct.en.join(", ");
+  } else if (language === "Bahasa Melayu") {
+    productFeatures = selectedProduct.bm.join(", ");
+  } else {
+    productFeatures = selectedProduct.zh.join("、");
+  }
+}
 
   const productLine =
     language === "English"

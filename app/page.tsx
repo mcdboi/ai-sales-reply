@@ -6,17 +6,20 @@ export default function Home() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [language, setLanguage] = useState("中文");
+  const [product, setProduct] = useState("LG Water Purifier");
 
-  const buttonStyle = {
-    background: "#2563eb",
-    color: "white",
-    border: "none",
-    padding: "8px 14px",
-    borderRadius: "8px",
-    cursor: "pointer",
-    marginRight: "8px",
-    marginBottom: "8px",
-  };
+  const products = [
+    "LG Water Purifier",
+    "LG Air Purifier",
+    "LG Washer",
+    "LG Dryer",
+    "LG Fridge",
+    "LG Monitor",
+    "LG TV",
+    "LG Stage 301",
+    "LG Vacuum",
+    "LG Dehumidifier",
+  ];
 
   const quickButtons = [
     "太贵了",
@@ -45,10 +48,21 @@ export default function Home() {
     "客户3天没回复",
   ];
 
+  const buttonStyle = {
+    background: "#2563eb",
+    color: "white",
+    border: "none",
+    padding: "8px 14px",
+    borderRadius: "8px",
+    cursor: "pointer",
+    marginRight: "8px",
+    marginBottom: "8px",
+  };
+
   const generateReply = async () => {
     const res = await fetch("/api/generate", {
       method: "POST",
-      body: JSON.stringify({ message: input, language }),
+      body: JSON.stringify({ message: input, language, product }),
     });
 
     const data = await res.json();
@@ -63,7 +77,7 @@ export default function Home() {
   return (
     <div
       style={{
-        maxWidth: "900px",
+        maxWidth: "950px",
         margin: "40px auto",
         padding: "25px",
         fontFamily: "Arial",
@@ -72,10 +86,10 @@ export default function Home() {
         background: "white",
       }}
     >
-      <h1 style={{ textAlign: "center" }}>AI Sales Reply Pro 🚀</h1>
+      <h1 style={{ textAlign: "center" }}>AI Product Sales Assistant 🚀</h1>
 
       <p style={{ textAlign: "center", color: "#666" }}>
-        免费版销售 WhatsApp 回复助手
+        中文 / English / Bahasa Melayu 销售回复助手
       </p>
 
       <h3>选择语言：</h3>
@@ -88,11 +102,32 @@ export default function Home() {
           borderRadius: "8px",
           marginBottom: "15px",
           fontSize: "16px",
+          width: "100%",
         }}
       >
         <option value="中文">中文</option>
         <option value="English">English</option>
         <option value="Bahasa Melayu">Bahasa Melayu</option>
+      </select>
+
+      <h3>选择产品：</h3>
+
+      <select
+        value={product}
+        onChange={(e) => setProduct(e.target.value)}
+        style={{
+          padding: "10px",
+          borderRadius: "8px",
+          marginBottom: "15px",
+          fontSize: "16px",
+          width: "100%",
+        }}
+      >
+        {products.map((item) => (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        ))}
       </select>
 
       <h3>选择客户情况：</h3>
@@ -136,7 +171,7 @@ export default function Home() {
         </button>
       </div>
 
-      <h3>AI 回复：</h3>
+      <h3>销售回复：</h3>
 
       <div
         style={{

@@ -59,6 +59,15 @@ export default function Home() {
     marginBottom: "8px",
   };
 
+  const selectStyle = {
+    padding: "10px",
+    borderRadius: "8px",
+    marginBottom: "15px",
+    fontSize: "16px",
+    width: "100%",
+    border: "1px solid #ccc",
+  };
+
   const generateReply = async () => {
     const res = await fetch("/api/generate", {
       method: "POST",
@@ -97,13 +106,7 @@ export default function Home() {
       <select
         value={language}
         onChange={(e) => setLanguage(e.target.value)}
-        style={{
-          padding: "10px",
-          borderRadius: "8px",
-          marginBottom: "15px",
-          fontSize: "16px",
-          width: "100%",
-        }}
+        style={selectStyle}
       >
         <option value="中文">中文</option>
         <option value="English">English</option>
@@ -115,13 +118,7 @@ export default function Home() {
       <select
         value={product}
         onChange={(e) => setProduct(e.target.value)}
-        style={{
-          padding: "10px",
-          borderRadius: "8px",
-          marginBottom: "15px",
-          fontSize: "16px",
-          width: "100%",
-        }}
+        style={selectStyle}
       >
         {products.map((item) => (
           <option key={item} value={item}>

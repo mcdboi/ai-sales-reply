@@ -194,11 +194,11 @@ export async function POST(req: Request) {
 
     "供几年": {
       中文:
-        "可以根据银行或分期方案安排 😊 常见有 6、12、24 或 36 个月。您想了解哪一种方案呢？",
+        "可以根据银行或分期方案安排 😊 常见有 5 或 7年 。您想了解哪一种方案呢？",
       English:
-        "It depends on the bank or instalment plan 😊 Common options include 6, 12, 24, or 36 months. Which plan would you like to know more about?",
+        "It depends on the bank or instalment plan 😊 Common options include 5 or 7 years. Which plan would you like to know more about?",
       "Bahasa Melayu":
-        "Ia bergantung pada bank atau pelan ansuran 😊 Pilihan biasa termasuk 6, 12, 24 atau 36 bulan. Anda ingin tahu pelan yang mana?",
+        "Ia bergantung pada bank atau pelan ansuran 😊 Pilihan biasa termasuk 5 atau 7 tahun. Anda ingin tahu pelan yang mana?",
     },
 
     "需要什么document吗": {

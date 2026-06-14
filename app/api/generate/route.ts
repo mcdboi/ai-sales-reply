@@ -1,4 +1,4 @@
-import { products } from "@/data/products";
+import { products } from "../../data/products";
 
 export async function POST(req: Request) {
   const body = await req.json();
